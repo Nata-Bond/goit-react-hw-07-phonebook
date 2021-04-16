@@ -3,6 +3,7 @@ import ContactListItem from "./ContactListItem";
 import s from "./contacts.module.css";
 import { connect } from "react-redux";
 import { getContact } from "../../redux/contacts/contactsOperations";
+import contactsSelectors from "../../redux/contacts/contactsSelectors";
 
 const ContactList = ({ contacts, filter, getContact, isLoading }) => {
   useEffect(() => {
@@ -35,9 +36,9 @@ const ContactList = ({ contacts, filter, getContact, isLoading }) => {
 };
 
 const mapStateToProps = (state) => ({
-  contacts: state.contacts.items,
-  filter: state.contacts.filter,
-  isLoading: state.contacts.loading,
+  contacts: contactsSelectors.getContacts(state),
+  filter: contactsSelectors.getFilter(state),
+  isLoading: contactsSelectors.getLoading(state),
 });
 
 const mapDispatchToProps = { getContact };
