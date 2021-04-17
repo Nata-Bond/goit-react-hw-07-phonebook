@@ -12,10 +12,10 @@ import {
 // import storage from "redux-persist/lib/storage";
 import contactReducer from "../redux/contacts/contactsReducer";
 
-const myMideleware = (store) => (next) => (action) => {
-  console.log("my prosloyka", action);
-  next(action);
-};
+// const myMideleware = (store) => (next) => (action) => {
+//   console.log("my prosloyka", action);
+//   next(action);
+// };
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -23,7 +23,7 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  myMideleware,
+  // myMideleware,
 ];
 
 // const contactsPersistConfig = {
